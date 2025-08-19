@@ -25,4 +25,22 @@
   <!-- Malerei-Bilder -->
   <section id="malerei" class="gallery">
     <img src="images/werk1.jpg" alt="Werk 1">
-    <img
+    <img src="images/werk2.jpg" alt="Werk 2">
+    <img src="images/werk3.jpg" alt="Werk 3">
+  </section>
+
+  <!-- Theater-Bilder -->
+  <section id="theater" class="gallery" style="display:none;">
+    <img src="images/performance1.jpg" alt="Performance 1">
+    <img src="images/performance2.jpg" alt="Performance 2">
+    <img src="images/performance3.jpg" alt="Performance 3">
+  </section>
+
+  <script>
+    function showSection(sectionId) {
+      document.getElementById('malerei').style.display = (sectionId === 'malerei') ? 'block' : 'none';
+      document.getElementById('theater').style.display = (sectionId === 'theater') ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
