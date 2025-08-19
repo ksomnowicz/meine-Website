@@ -1,43 +1,28 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meine erste Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Kunst</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Willkommen auf meiner Website!</h1>
-    </header>
-    <main>
-        <p>Das ist eine kostenlose Website, gehostet mit GitHub Pages.</p>
-    </main>
-    <footer>
-        <p>© 2025 Dein Name</p>
-    </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Mustermann – Künstler</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Max Mustermann – Künstler</h1>
-        <nav>
-            <a href="malerei.html">Malerei</a> |
-            <a href="theater.html">Theater & Performance</a>
-        </nav>
-    </header>
+  <!-- Hero-Bild -->
+  <section class="hero">
+    <img src="images/hero-bild.jpg" alt="Hero-Bild">
+    <div class="hero-text">
+      <h1>Meine Malerei & Theaterarbeiten</h1>
+      <p>Zwischen dokumentarischem Realismus, Poesie und symbolischer Tiefe.</p>
+    </div>
+  </section>
 
-    <!-- Hero-Bild -->
-    <section class="hero">
-        <img src="images/hero-bild.jpg" alt="Hero-Bild eines Werks von Max Mustermann">
-        <div class="hero-text">
-            <h2>Zwischen Realismus, Melancholie und symbolischer Überhöhung</h2>
-            <p>Willkommen auf meiner Künstlerseite – Malerei & Performance im Di
+  <!-- Auswahl Malerei / Theater -->
+  <section class="gallery-switch">
+    <button onclick="showSection('malerei')">Malerei</button>
+    <button onclick="showSection('theater')">Theater</button>
+  </section>
+
+  <!-- Malerei-Bilder -->
+  <section id="malerei" class="gallery">
+    <img src="images/werk1.jpg" alt="Werk 1">
+    <img
