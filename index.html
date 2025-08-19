@@ -9,3 +9,22 @@
     </div>
   </div>
 </section>
+
+<!-- Beispiel-Sektionen, die durch die Buttons angezeigt werden -->
+<section id="malerei" style="display:none;">
+  <h2>Malerei</h2>
+  <!-- Bilder / Galerie hier einfügen -->
+</section>
+
+<section id="theater" style="display:none;">
+  <h2>Theater</h2>
+  <!-- Bilder / Galerie hier einfügen -->
+</section>
+
+<script>
+  function showSection(sectionId) {
+    document.getElementById('malerei').style.display = 'none';
+    document.getElementById('theater').style.display = 'none';
+    document.getElementById(sectionId).style.display = 'block';
+  }
+</script>
