@@ -1,30 +1,44 @@
-<section class="hero">
-  <img src="images/dein-bild.jpg" alt="Hero-Bild">
-  <div class="hero-text">
-    <h1>Meine Malerei & Theaterarbeiten</h1>
-    <p>Zwischen dokumentarischem Realismus, Poesie und symbolischer Tiefe.</p>
-    <div class="gallery-switch">
-      <button onclick="showSection('malerei')">Malerei</button>
-      <button onclick="showSection('theater')">Theater</button>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Kunst</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hero-Bereich -->
+  <section class="hero">
+    <img src="images/dein-bild.jpg" alt="Hero-Bild">
+    <div class="hero-text">
+      <h1>Meine Malerei & Theaterarbeiten</h1>
+      <p>Zwischen dokumentarischem Realismus, Poesie und symbolischer Tiefe.</p>
+      <div class="gallery-switch">
+        <button onclick="showSection('malerei')">Malerei</button>
+        <button onclick="showSection('theater')">Theater</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Beispiel-Sektionen, die durch die Buttons angezeigt werden -->
-<section id="malerei" style="display:none;">
-  <h2>Malerei</h2>
-  <!-- Bilder / Galerie hier einfügen -->
-</section>
+  <!-- Galerie-Sektionen -->
+  <section id="malerei" class="gallery" style="display:none;">
+    <h2>Malerei</h2>
+    <p>Hier kannst du deine Malerei-Bilder einfügen.</p>
+  </section>
 
-<section id="theater" style="display:none;">
-  <h2>Theater</h2>
-  <!-- Bilder / Galerie hier einfügen -->
-</section>
+  <section id="theater" class="gallery" style="display:none;">
+    <h2>Theater</h2>
+    <p>Hier kannst du deine Theater-Bilder einfügen.</p>
+  </section>
 
-<script>
-  function showSection(sectionId) {
-    document.getElementById('malerei').style.display = 'none';
-    document.getElementById('theater').style.display = 'none';
-    document.getElementById(sectionId).style.display = 'block';
-  }
-</script>
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.gallery');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(sectionId).style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
