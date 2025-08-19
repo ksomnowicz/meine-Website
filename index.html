@@ -1,44 +1,22 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meine Kunst</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Künstlerprofil</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Hero-Bereich -->
-  <section class="hero">
-    <img src="images/dein-bild.jpg" alt="Hero-Bild">
-    <div class="hero-text">
-      <h1>Meine Malerei & Theaterarbeiten</h1>
-      <p>Zwischen dokumentarischem Realismus, Poesie und symbolischer Tiefe.</p>
-      <div class="gallery-switch">
-        <button onclick="showSection('malerei')">Malerei</button>
-        <button onclick="showSection('theater')">Theater</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Galerie-Sektionen -->
-  <section id="malerei" class="gallery" style="display:none;">
-    <h2>Malerei</h2>
-    <p>Hier kannst du deine Malerei-Bilder einfügen.</p>
-  </section>
-
-  <section id="theater" class="gallery" style="display:none;">
-    <h2>Theater</h2>
-    <p>Hier kannst du deine Theater-Bilder einfügen.</p>
-  </section>
-
-  <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.gallery');
-      sections.forEach(sec => sec.style.display = 'none');
-      document.getElementById(sectionId).style.display = 'block';
-    }
-  </script>
-
+    <header class="hero">
+        <img src="images/hero.jpg" alt="Hero-Bild">
+        <div class="hero-text">
+            <h1>Willkommen in meiner Welt der Malerei</h1>
+            <p>Meine Arbeiten bewegen sich zwischen dokumentarischem Realismus, stiller Poesie und symbolischer Überhöhung. Ich zeige Alltagsräume, die Geschichten erzählen.</p>
+            <div class="buttons">
+                <a href="malerei.html" class="btn">Malerei</a>
+                <a href="theater.html" class="btn">Theater</a>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
