@@ -1,3 +1,4 @@
+/* --- Hero-Bereich --- */
 .hero {
   position: relative;
   width: 100%;
@@ -9,7 +10,7 @@
   width: 100%;
   height: 120%;
   object-fit: cover;
-  object-position: center top; /* sichtbarer Ausschnitt */
+  object-position: center top;
   filter: brightness(0.7);
   transform: scale(1.1);
   transition: transform 0.5s ease;
@@ -62,4 +63,21 @@
   background: rgba(255,255,255,0.35);
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* --- Galerie-Sektionen --- */
+.gallery {
+  padding: 40px 20px;
+  text-align: center;
+  background: #f5f5f5;
+}
+
+.gallery h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.gallery p {
+  font-size: 1em;
+  color: #333;
 }
