@@ -1,46 +1,11 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meine Kunst</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Hero-Bild -->
-  <section class="hero">
-    <img src="images/hero-bild.jpg" alt="Hero-Bild">
-    <div class="hero-text">
-      <h1>Meine Malerei & Theaterarbeiten</h1>
-      <p>Zwischen dokumentarischem Realismus, Poesie und symbolischer Tiefe.</p>
+<section class="hero">
+  <img src="images/hero-bild.jpg" alt="Hero-Bild">
+  <div class="hero-text">
+    <h1>Meine Malerei & Theaterarbeiten</h1>
+    <p>Zwischen dokumentarischem Realismus, Poesie und symbolischer Tiefe.</p>
+    <div class="gallery-switch">
+      <button onclick="showSection('malerei')">Malerei</button>
+      <button onclick="showSection('theater')">Theater</button>
     </div>
-  </section>
-
-  <!-- Auswahl Malerei / Theater -->
-  <section class="gallery-switch">
-    <button onclick="showSection('malerei')">Malerei</button>
-    <button onclick="showSection('theater')">Theater</button>
-  </section>
-
-  <!-- Malerei-Bilder -->
-  <section id="malerei" class="gallery">
-    <img src="images/werk1.jpg" alt="Werk 1">
-    <img src="images/werk2.jpg" alt="Werk 2">
-    <img src="images/werk3.jpg" alt="Werk 3">
-  </section>
-
-  <!-- Theater-Bilder -->
-  <section id="theater" class="gallery" style="display:none;">
-    <img src="images/performance1.jpg" alt="Performance 1">
-    <img src="images/performance2.jpg" alt="Performance 2">
-    <img src="images/performance3.jpg" alt="Performance 3">
-  </section>
-
-  <script>
-    function showSection(sectionId) {
-      document.getElementById('malerei').style.display = (sectionId === 'malerei') ? 'block' : 'none';
-      document.getElementById('theater').style.display = (sectionId === 'theater') ? 'block' : 'none';
-    }
-  </script>
-</body>
-</html>
+  </div>
+</section>
