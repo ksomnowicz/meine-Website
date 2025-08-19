@@ -1,7 +1,7 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 80vh; 
+  height: 80vh;
   overflow: hidden;
 }
 
@@ -9,7 +9,7 @@
   width: 100%;
   height: 120%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center top; /* sichtbarer Ausschnitt */
   filter: brightness(0.7);
   transform: scale(1.1);
   transition: transform 0.5s ease;
