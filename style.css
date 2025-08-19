@@ -1,22 +1,30 @@
-/* Hero-Bereich neu */
+/* Hero-Bereich für Close-Up */
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh; /* Ganzer Viewport-Höhe */
+  height: 80vh; /* etwas kleiner als ganzer Bildschirm */
   overflow: hidden;
 }
 
 .hero img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Bild passt sich dem Container an, ohne verzerrt zu werden */
-  filter: brightness(0.75); /* dunkleres Bild für Text */
+  height: 120%; /* Bild etwas größer als Container für Ausschnitt */
+  object-fit: cover;
+  object-position: center top; /* wählt den oberen Bereich als sichtbaren Ausschnitt */
+  filter: brightness(0.7); /* dunkleres Bild für Text */
+  transform: scale(1.1); /* leicht vergrößert für Close-Up-Effekt */
+  transition: transform 0.5s ease;
 }
 
-/* Text oben statt mittig */
+/* Optional: kleiner Zoom beim Hover */
+.hero img:hover {
+  transform: scale(1.15);
+}
+
+/* Text oben */
 .hero-text {
   position: absolute;
-  top: 10%; /* noch näher am oberen Rand */
+  top: 10%;
   left: 50%;
   transform: translateX(-50%);
   color: white;
@@ -28,7 +36,6 @@
   font-size: 3em;
   margin: 0.2em 0;
   text-shadow: 3px 3px 12px rgba(0,0,0,0.7);
-  letter-spacing: 1px;
 }
 
 .hero-text p {
@@ -52,7 +59,7 @@
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s;
-  backdrop-filter: blur(5px); /* Glass-Effekt */
+  backdrop-filter: blur(5px);
 }
 
 .gallery-switch button:hover {
