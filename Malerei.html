@@ -3,34 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malerei – Max Mustermann</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Malerei von Max Mustermann</h1>
-        <nav>
-            <a href="index.html">Startseite</a> |
-            <a href="theater.html">Theater & Performance</a>
-        </nav>
-    </header>
-
-    <section class="gallery">
-        <h2>Meine Werke</h2>
-        <div class="grid">
-            <div class="grid-item">
-                <img src="im
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malerei</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Hintergrund-Hero -->
     <header class="hero">
         <img src="images/hero.jpg" alt="Hero-Bild">
         <div class="hero-text">
@@ -38,52 +14,58 @@
         </div>
     </header>
 
-    <!-- Reiter für Kategorien -->
-    <nav class="tabs">
-        <button class="tab-button active" data-tab="interior">Interior</button>
-        <button class="tab-button" data-tab="andere">Andere</button>
-    </nav>
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('interior')">Interior</button>
+        <button class="tab-button" onclick="openTab('exterior')">Exterior</button>
+    </div>
 
-    <!-- Bilderbereich -->
-    <section class="gallery">
-        <div class="tab-content" id="interior">
+    <!-- Galerie -->
+    <div id="interior" class="gallery-tab" style="display: block;">
+        <div class="gallery">
             <div class="art-item">
                 <img src="images/bild1.jpg" alt="Bild 1">
                 <div class="info">
-                    <h3>Titel 1</h3>
-                    <p>Beschreibung des Bildes</p>
-                    <p>Maße: 50x70 cm</p>
+                    <strong>Titel:</strong> Wohnzimmer<br>
+                    <strong>Maße:</strong> 50x70 cm<br>
+                    <strong>Beschreibung:</strong> Stimmungsvolle Darstellung eines ruhigen Raums.
                 </div>
             </div>
+
             <div class="art-item">
                 <img src="images/bild2.jpg" alt="Bild 2">
                 <div class="info">
-                    <h3>Titel 2</h3>
-                    <p>Beschreibung des Bildes</p>
-                    <p>Maße: 60x80 cm</p>
+                    <strong>Titel:</strong> Küche<br>
+                    <strong>Maße:</strong> 40x60 cm<br>
+                    <strong>Beschreibung:</strong> Detailreiche Momentaufnahme des Alltags.
                 </div>
             </div>
-            <!-- weitere Bilder hier -->
         </div>
-        <div class="tab-content" id="andere" style="display:none;">
-            <p>Hier könnten andere Kategorien angezeigt werden.</p>
-        </div>
-    </section>
+    </div>
 
+    <div id="exterior" class="gallery-tab" style="display: none;">
+        <div class="gallery">
+            <div class="art-item">
+                <img src="images/bild3.jpg" alt="Bild 3">
+                <div class="info">
+                    <strong>Titel:</strong> Garten<br>
+                    <strong>Maße:</strong> 60x80 cm<br>
+                    <strong>Beschreibung:</strong> Lichtdurchfluteter Außenraum.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script für Tabs -->
     <script>
-    // Tabs Funktion
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const tabContents = document.querySelectorAll(".tab-content");
-
-    tabButtons.forEach(btn => {
-        btn.addEventListener("click", () => {
-            tabButtons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-
-            tabContents.forEach(content => content.style.display = "none");
-            document.getElementById(btn.dataset.tab).style.display = "block";
-        });
-    });
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.gallery-tab');
+            const buttons = document.querySelectorAll('.tab-button');
+            tabs.forEach(tab => tab.style.display = 'none');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabName).style.display = 'block';
+            event.currentTarget.classList.add('active');
+        }
     </script>
 </body>
 </html>
