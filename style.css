@@ -28,7 +28,7 @@ body, html {
 /* Text über dem Hero-Bild */
 .hero-text {
     position: absolute;
-    top: 20%; /* Text etwas oben platzieren */
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -40,8 +40,8 @@ body, html {
 .hero-text h1 {
     font-size: 2rem;
     line-height: 1.4;
-    opacity: 0; /* unsichtbar starten */
-    transform: translateY(20px); /* leicht nach unten verschoben */
+    opacity: 0; 
+    transform: translateY(20px);
     transition: all 1s ease;
 }
 
@@ -50,7 +50,7 @@ body, html {
     margin-top: 30px;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 1s ease 0.3s; /* kleiner Delay nach Text */
+    transition: all 1s ease 0.3s;
 }
 
 .btn {
@@ -74,4 +74,33 @@ body, html {
 .buttons.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ----- RESPONSIVE STYLES FÜR HANDYS ----- */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .btn {
+        padding: 12px 20px;
+        margin: 0 auto;
+        width: 70%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text {
+        top: 15%;
+    }
+    .hero-text h1 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
 }
