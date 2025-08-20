@@ -15,26 +15,32 @@ body, html {
     position: relative;
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
 }
 
 .hero img {
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
     height: 100%;
-    object-fit: cover; /* Bild skaliert, ohne zu verzerren */
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* skaliert, ohne zu verzerren */
     object-position: center; /* nur der gemalte Teil sichtbar */
 }
 
 /* Text über dem Hero-Bild */
 .hero-text {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative; /* jetzt über dem Bild */
     text-align: center;
     color: #fff;
     max-width: 800px;
     padding: 0 20px;
+    z-index: 2;
 }
 
 .hero-text h1 {
@@ -97,10 +103,13 @@ body, html {
 
 @media (max-width: 480px) {
     .hero-text {
-        top: 15%;
+        max-width: 90%;
     }
     .hero-text h1 {
         font-size: 1.2rem;
         line-height: 1.3;
+    }
+    .hero {
+        height: 80vh; /* auf Handys etwas weniger hoch, damit Text sichtbar bleibt */
     }
 }
