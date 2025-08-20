@@ -20,3 +20,70 @@
         <div class="grid">
             <div class="grid-item">
                 <img src="im
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malerei</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Hintergrund-Hero -->
+    <header class="hero">
+        <img src="images/hero.jpg" alt="Hero-Bild">
+        <div class="hero-text">
+            <h1>Malerei</h1>
+        </div>
+    </header>
+
+    <!-- Reiter für Kategorien -->
+    <nav class="tabs">
+        <button class="tab-button active" data-tab="interior">Interior</button>
+        <button class="tab-button" data-tab="andere">Andere</button>
+    </nav>
+
+    <!-- Bilderbereich -->
+    <section class="gallery">
+        <div class="tab-content" id="interior">
+            <div class="art-item">
+                <img src="images/bild1.jpg" alt="Bild 1">
+                <div class="info">
+                    <h3>Titel 1</h3>
+                    <p>Beschreibung des Bildes</p>
+                    <p>Maße: 50x70 cm</p>
+                </div>
+            </div>
+            <div class="art-item">
+                <img src="images/bild2.jpg" alt="Bild 2">
+                <div class="info">
+                    <h3>Titel 2</h3>
+                    <p>Beschreibung des Bildes</p>
+                    <p>Maße: 60x80 cm</p>
+                </div>
+            </div>
+            <!-- weitere Bilder hier -->
+        </div>
+        <div class="tab-content" id="andere" style="display:none;">
+            <p>Hier könnten andere Kategorien angezeigt werden.</p>
+        </div>
+    </section>
+
+    <script>
+    // Tabs Funktion
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            tabButtons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+
+            tabContents.forEach(content => content.style.display = "none");
+            document.getElementById(btn.dataset.tab).style.display = "block";
+        });
+    });
+    </script>
+</body>
+</html>
