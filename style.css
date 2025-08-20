@@ -1,52 +1,66 @@
+/* Alles zurücksetzen */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  background: black;
+}
+
 /* Hero-Bereich */
 .hero {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* nimmt die volle Höhe des Bildschirms */
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Bildschirmhöhe */
+  overflow: hidden;
 }
 
 .hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;        /* nur das Gemalte sichtbar, kein Rahmen */
-    object-position: center;  /* Ausschnitt von der Mitte */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Bild füllt den Container */
 }
 
 /* Text über dem Bild */
 .hero-text {
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    color: white;
-    max-width: 50%;
+  position: absolute;
+  top: 20%; /* Abstand von oben */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  max-width: 80%;
 }
 
 .hero-text h1 {
-    font-size: 1.8rem;
-    font-weight: 300;
-    line-height: 1.6;
-    font-style: italic; /* macht es poetischer */
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 300;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7); /* besser lesbar */
 }
 
 /* Buttons */
 .buttons {
-    margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-right: 10px;
-    background-color: rgba(255, 255, 255, 0.85);
-    color: #000;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  margin: 0 0.5rem;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #000;
-    color: #fff;
+  background: white;
+  color: black;
 }
