@@ -69,3 +69,62 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malerei</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero">
+        <img src="images/hero.jpg" alt="Hero-Bild">
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li class="active" onclick="showContent('interior')">Interior</li>
+                <!-- Hier später weitere Kategorien -->
+            </ul>
+        </nav>
+
+        <main class="content">
+            <div id="interior" class="tab-content active">
+                <div class="art-item">
+                    <img src="images/beispielbild1.jpg" alt="Bild 1">
+                    <div class="art-info">
+                        <h3>Titel des Bildes</h3>
+                        <p>Material: Öl auf Leinwand</p>
+                        <p>Maße: 50 x 70 cm</p>
+                    </div>
+                </div>
+
+                <div class="art-item">
+                    <img src="images/beispielbild2.jpg" alt="Bild 2">
+                    <div class="art-info">
+                        <h3>Titel des Bildes</h3>
+                        <p>Material: Acryl auf Papier</p>
+                        <p>Maße: 40 x 60 cm</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showContent(tab) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(c => c.classList.remove('active'));
+
+            const activeTab = document.getElementById(tab);
+            activeTab.classList.add('active');
+
+            const navItems = document.querySelectorAll('.sidebar li');
+            navItems.forEach(i => i.classList.remove('active'));
+            document.querySelector(`.sidebar li[onclick="showContent('${tab}')"]`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
