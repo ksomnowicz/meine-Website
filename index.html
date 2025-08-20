@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Künstlerseite</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="hero">
@@ -21,5 +24,24 @@
             </div>
         </div>
     </header>
+
+    <!-- Script für Scroll-Animation -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const text = document.querySelector(".hero-text h1");
+        const buttons = document.querySelector(".buttons");
+
+        function checkVisibility() {
+            const rect = text.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                text.classList.add("visible");
+                buttons.classList.add("visible");
+            }
+        }
+
+        window.addEventListener("scroll", checkVisibility);
+        checkVisibility(); // direkt prüfen
+    });
+    </script>
 </body>
 </html>
