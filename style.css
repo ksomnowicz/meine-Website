@@ -1,187 +1,70 @@
-/* Grundlegende Reset-Styles */
-* {
+/* Allgemeine Stile */
+body {
+    font-family: 'Playfair Display', serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #fff;
 }
 
-body, html {
-    height: 100%;
-    font-family: 'Playfair Display', serif;
-}
-
-/* Hero-Bild */
+/* Hero-Bereich */
 .hero {
     position: relative;
     width: 100%;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
 }
 
 .hero img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: auto;
+    width: 100%;
     height: 100%;
-    min-width: 100%;
-    transform: translate(-50%, -50%);
-    object-fit: cover; /* skaliert, ohne zu verzerren */
-    object-position: center; /* nur der gemalte Teil sichtbar */
+    object-fit: cover;
 }
 
-/* Text über dem Hero-Bild */
+/* Hero-Text & Buttons */
 .hero-text {
-    position: relative; /* jetzt über dem Bild */
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     color: #fff;
-    max-width: 800px;
-    padding: 0 20px;
-    z-index: 2;
 }
 
 .hero-text h1 {
     font-size: 2rem;
     line-height: 1.4;
-    opacity: 0; 
-    transform: translateY(20px);
-    transition: all 1s ease;
 }
 
-/* Buttons */
 .buttons {
-    margin-top: 30px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 1s ease 0.3s;
-}
-
-.btn {
-    text-decoration: none;
-    color: #fff;
-    border: 2px solid #fff;
-    padding: 10px 25px;
-    margin: 0 10px;
-    display: inline-block;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-/* Scroll-Animation sichtbar machen */
-.hero-text h1.visible,
-.buttons.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ----- RESPONSIVE STYLES FÜR HANDYS ----- */
-@media (max-width: 768px) {
-    .hero-text h1 {
-        font-size: 1.5rem;
-    }
-    .buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
-    }
-    .btn {
-        padding: 12px 20px;
-        margin: 0 auto;
-        width: 70%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-text {
-        max-width: 90%;
-    }
-    .hero-text h1 {
-        font-size: 1.2rem;
-        line-height: 1.3;
-    }
-    .hero {
-        height: 80vh; /* auf Handys etwas weniger hoch, damit Text sichtbar bleibt */
-    }
-}
-/* =======================
-   Galerie & Tabs für Malerei
-   ======================= */
-
-.gallery {
-    padding: 50px 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.art-item {
-    margin-bottom: 40px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.art-item img {
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #fff;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.art-item img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-}
-
-.art-item .info {
-    margin-top: 15px;
-    font-family: 'Playfair Display', serif;
-    color: #222;
-}
-
-/* Tabs */
-.tabs {
-    text-align: center;
     margin-top: 20px;
 }
 
-.tab-button {
+.btn {
     padding: 10px 20px;
-    margin: 0 5px;
-    border: none;
-    background: #333;
+    margin: 0 10px;
+    background: rgba(0,0,0,0.6);
     color: #fff;
-    cursor: pointer;
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    transition: 0.3s;
+    text-decoration: none;
     border-radius: 5px;
+    transition: background 0.3s;
 }
 
-.tab-button.active, .tab-button:hover {
-    background: #555;
+.btn:hover {
+    background: rgba(255,255,255,0.2);
 }
-/* Container für Sidebar + Content */
+
+/* Container für Sidebar & Galerie */
 .container {
     display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Sidebar */
 .sidebar {
-    flex: 0 0 200px;
-    border-right: 2px solid #ccc;
-    padding: 20px;
+    width: 200px;
+    margin-right: 20px;
 }
 
 .sidebar ul {
@@ -193,265 +76,87 @@ body, html {
     padding: 10px;
     cursor: pointer;
     font-weight: bold;
+    transition: background-color 0.3s;
 }
 
+.sidebar li:hover,
 .sidebar li.active {
-    color: #b22222; /* z.B. rote Farbe für aktive Kategorie */
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Content */
-.content {
-    flex: 1;
-    padding: 20px;
+/* Galerie */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    flex-grow: 1;
 }
 
-/* Tab Inhalte */
-.tab-content {
+.category {
     display: none;
 }
 
-.tab-content.active {
+.category.active {
     display: block;
 }
 
-/* Einzelne Kunstwerke */
-.art-item {
-    display: flex;
-    margin-bottom: 20px;
-}
-
-.art-item img {
-    max-width: 200px;
-    margin-right: 20px;
-}
-
-.art-info h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-}
-
-.art-info p {
-    margin: 2px 0;
-}
-/* Container für Sidebar + Content */
-.container {
-    display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
-    flex-wrap: wrap; /* für Handy */
-}
-
-/* Sidebar */
-.sidebar {
-    flex: 0 0 200px;
-    border-right: 2px solid #ccc;
-    padding: 20px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar li {
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.sidebar li:hover {
-    color: #b22222;
-}
-
-.sidebar li.active {
-    color: #b22222;
-}
-
-/* Content */
-.content {
-    flex: 1;
-    padding: 20px;
-}
-
-/* Tab Inhalte */
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-/* Einzelne Kunstwerke */
-.art-item {
-    display: flex;
-    margin-bottom: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
-}
-
-.art-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.art-item img {
-    max-width: 200px;
-    margin-right: 20px;
-    object-fit: cover;
-    border: 2px solid #ccc;
-}
-
-.art-info h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-}
-
-.art-info p {
-    margin: 2px 0;
-}
-
-/* Responsive für Handy */
-@media screen and (max-width: 768px){
-    .container {
-        flex-direction: column;
-    }
-    .sidebar {
-        flex: 1;
-        border-right: none;
-        border-bottom: 2px solid #ccc;
-    }
-    .art-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .art-item img {
-        margin: 0 0 10px 0;
-    }
-}
-/* Hero Bild als Hintergrund */
-.hero {
+/* Kunstwerk */
+.artwork {
     position: relative;
-    width: 100%;
-    height: 100vh;
     overflow: hidden;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    transition: transform 0.3s;
 }
 
-.hero img {
+.artwork:hover {
+    transform: scale(1.05);
+}
+
+.artwork img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: opacity 0.3s;
+}
+
+.artwork .info {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
-}
-
-/* Overlay Container für Sidebar + Content */
-.overlay-container {
-    display: flex;
-    height: 100%;
     width: 100%;
-    padding: 40px;
-    box-sizing: border-box;
-    background: rgba(0,0,0,0.3); /* optional: leicht transparent, damit Text sichtbar ist */
-    flex-wrap: wrap;
-}
-
-/* Sidebar */
-.sidebar {
-    flex: 0 0 200px;
-    margin-right: 40px;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar li {
-    padding: 10px;
-    cursor: pointer;
-    font-weight: bold;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
     color: #fff;
-    transition: color 0.3s;
-}
-
-.sidebar li:hover {
-    color: #ffcc00;
-}
-
-.sidebar li.active {
-    color: #ffcc00;
-}
-
-/* Content */
-.content {
-    flex: 1;
-    color: #fff;
-}
-
-/* Tab Inhalte */
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-/* Einzelne Kunstwerke */
-.art-item {
-    display: flex;
-    margin-bottom: 20px;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.8s ease;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: opacity 0.3s;
 }
 
-.art-item.visible {
+.artwork:hover .info {
     opacity: 1;
-    transform: translateY(0);
-}
-
-.art-item img {
-    max-width: 200px;
-    margin-right: 20px;
-    object-fit: cover;
-    border: 2px solid #fff;
-}
-
-.art-info h3 {
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-}
-
-.art-info p {
-    margin: 2px 0;
 }
 
 /* Responsive */
-@media screen and (max-width: 768px){
-    .overlay-container {
+@media (max-width: 768px) {
+    .container {
         flex-direction: column;
-        padding: 20px;
-        background: rgba(0,0,0,0.3);
     }
+
     .sidebar {
-        flex: 1;
+        width: 100%;
         margin-right: 0;
-        margin-bottom: 20px;
-        border-bottom: 1px solid #fff;
+        display: flex;
+        justify-content: center;
     }
-    .art-item {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+
+    .sidebar ul {
+        display: flex;
+        gap: 10px;
     }
-    .art-item img {
-        margin: 0 0 10px 0;
+
+    .gallery {
+        grid-template-columns: 1fr;
     }
 }
