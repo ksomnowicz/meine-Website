@@ -5,69 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malerei</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="hero">
         <img src="images/hero.jpg" alt="Hero-Bild">
+        <div class="overlay-container">
+            <nav class="sidebar">
+                <ul>
+                    <li class="active" onclick="showContent('interior')">Interior</li>
+                    <li onclick="showContent('sketches')">Sketches</li>
+                    <li onclick="showContent('other')">Other</li>
+                </ul>
+            </nav>
+
+            <main class="content">
+                <!-- Interior Kategorie -->
+                <div id="interior" class="tab-content active">
+                    <div class="art-item">
+                        <img src="images/beispielbild1.jpg" alt="Bild 1">
+                        <div class="art-info">
+                            <h3>Titel des Bildes</h3>
+                            <p>Material: Öl auf Leinwand</p>
+                            <p>Maße: 50 x 70 cm</p>
+                        </div>
+                    </div>
+                    <div class="art-item">
+                        <img src="images/beispielbild2.jpg" alt="Bild 2">
+                        <div class="art-info">
+                            <h3>Titel des Bildes</h3>
+                            <p>Material: Acryl auf Papier</p>
+                            <p>Maße: 40 x 60 cm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sketches Kategorie -->
+                <div id="sketches" class="tab-content">
+                    <div class="art-item">
+                        <img src="images/beispielsketch1.jpg" alt="Sketch 1">
+                        <div class="art-info">
+                            <h3>Titel Sketch</h3>
+                            <p>Material: Bleistift</p>
+                            <p>Maße: 21 x 29 cm</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Kategorie -->
+                <div id="other" class="tab-content">
+                    <div class="art-item">
+                        <img src="images/other1.jpg" alt="Other 1">
+                        <div class="art-info">
+                            <h3>Titel Other</h3>
+                            <p>Material: Mischtechnik</p>
+                            <p>Maße: 60 x 80 cm</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     </header>
-
-    <div class="container">
-        <nav class="sidebar">
-            <ul>
-                <li class="active" onclick="showContent('interior')">Interior</li>
-                <li onclick="showContent('sketches')">Sketches</li>
-                <li onclick="showContent('other')">Other</li>
-            </ul>
-        </nav>
-
-        <main class="content">
-            <!-- Interior Kategorie -->
-            <div id="interior" class="tab-content active">
-                <div class="art-item">
-                    <img src="images/beispielbild1.jpg" alt="Bild 1">
-                    <div class="art-info">
-                        <h3>Titel des Bildes</h3>
-                        <p>Material: Öl auf Leinwand</p>
-                        <p>Maße: 50 x 70 cm</p>
-                    </div>
-                </div>
-                <div class="art-item">
-                    <img src="images/beispielbild2.jpg" alt="Bild 2">
-                    <div class="art-info">
-                        <h3>Titel des Bildes</h3>
-                        <p>Material: Acryl auf Papier</p>
-                        <p>Maße: 40 x 60 cm</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sketches Kategorie -->
-            <div id="sketches" class="tab-content">
-                <div class="art-item">
-                    <img src="images/beispielsketch1.jpg" alt="Sketch 1">
-                    <div class="art-info">
-                        <h3>Titel Sketch</h3>
-                        <p>Material: Bleistift</p>
-                        <p>Maße: 21 x 29 cm</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Other Kategorie -->
-            <div id="other" class="tab-content">
-                <div class="art-item">
-                    <img src="images/other1.jpg" alt="Other 1">
-                    <div class="art-info">
-                        <h3>Titel Other</h3>
-                        <p>Material: Mischtechnik</p>
-                        <p>Maße: 60 x 80 cm</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
 
     <script>
         function showContent(tab) {
