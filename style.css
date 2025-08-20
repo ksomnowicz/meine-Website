@@ -332,3 +332,126 @@ body, html {
         margin: 0 0 10px 0;
     }
 }
+/* Hero Bild als Hintergrund */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Overlay Container für Sidebar + Content */
+.overlay-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.3); /* optional: leicht transparent, damit Text sichtbar ist */
+    flex-wrap: wrap;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 0 0 200px;
+    margin-right: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.sidebar li:hover {
+    color: #ffcc00;
+}
+
+.sidebar li.active {
+    color: #ffcc00;
+}
+
+/* Content */
+.content {
+    flex: 1;
+    color: #fff;
+}
+
+/* Tab Inhalte */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Einzelne Kunstwerke */
+.art-item {
+    display: flex;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.art-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.art-item img {
+    max-width: 200px;
+    margin-right: 20px;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.art-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+
+.art-info p {
+    margin: 2px 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px){
+    .overlay-container {
+        flex-direction: column;
+        padding: 20px;
+        background: rgba(0,0,0,0.3);
+    }
+    .sidebar {
+        flex: 1;
+        margin-right: 0;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #fff;
+    }
+    .art-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .art-item img {
+        margin: 0 0 10px 0;
+    }
+}
