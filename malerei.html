@@ -5,77 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malerei</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="hero">
-        <img src="images/hero.jpg" alt="Hero-Bild">
-        <div class="hero-text">
-            <h1>Malerei</h1>
-        </div>
-    </header>
-
-    <!-- Tabs -->
-    <div class="tabs">
-        <button class="tab-button active" onclick="openTab('interior')">Interior</button>
-        <button class="tab-button" onclick="openTab('exterior')">Exterior</button>
-    </div>
-
-    <!-- Galerie -->
-    <div id="interior" class="gallery-tab" style="display: block;">
-        <div class="gallery">
-            <div class="art-item">
-                <img src="images/bild1.jpg" alt="Bild 1">
-                <div class="info">
-                    <strong>Titel:</strong> Wohnzimmer<br>
-                    <strong>Maße:</strong> 50x70 cm<br>
-                    <strong>Beschreibung:</strong> Stimmungsvolle Darstellung eines ruhigen Raums.
-                </div>
-            </div>
-
-            <div class="art-item">
-                <img src="images/bild2.jpg" alt="Bild 2">
-                <div class="info">
-                    <strong>Titel:</strong> Küche<br>
-                    <strong>Maße:</strong> 40x60 cm<br>
-                    <strong>Beschreibung:</strong> Detailreiche Momentaufnahme des Alltags.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="exterior" class="gallery-tab" style="display: none;">
-        <div class="gallery">
-            <div class="art-item">
-                <img src="images/bild3.jpg" alt="Bild 3">
-                <div class="info">
-                    <strong>Titel:</strong> Garten<br>
-                    <strong>Maße:</strong> 60x80 cm<br>
-                    <strong>Beschreibung:</strong> Lichtdurchfluteter Außenraum.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Script für Tabs -->
-    <script>
-        function openTab(tabName) {
-            const tabs = document.querySelectorAll('.gallery-tab');
-            const buttons = document.querySelectorAll('.tab-button');
-            tabs.forEach(tab => tab.style.display = 'none');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabName).style.display = 'block';
-            event.currentTarget.classList.add('active');
-        }
-    </script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malerei</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="hero">
@@ -86,11 +17,13 @@
         <nav class="sidebar">
             <ul>
                 <li class="active" onclick="showContent('interior')">Interior</li>
-                <!-- Hier später weitere Kategorien -->
+                <li onclick="showContent('sketches')">Sketches</li>
+                <li onclick="showContent('other')">Other</li>
             </ul>
         </nav>
 
         <main class="content">
+            <!-- Interior Kategorie -->
             <div id="interior" class="tab-content active">
                 <div class="art-item">
                     <img src="images/beispielbild1.jpg" alt="Bild 1">
@@ -100,13 +33,36 @@
                         <p>Maße: 50 x 70 cm</p>
                     </div>
                 </div>
-
                 <div class="art-item">
                     <img src="images/beispielbild2.jpg" alt="Bild 2">
                     <div class="art-info">
                         <h3>Titel des Bildes</h3>
                         <p>Material: Acryl auf Papier</p>
                         <p>Maße: 40 x 60 cm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sketches Kategorie -->
+            <div id="sketches" class="tab-content">
+                <div class="art-item">
+                    <img src="images/beispielsketch1.jpg" alt="Sketch 1">
+                    <div class="art-info">
+                        <h3>Titel Sketch</h3>
+                        <p>Material: Bleistift</p>
+                        <p>Maße: 21 x 29 cm</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Kategorie -->
+            <div id="other" class="tab-content">
+                <div class="art-item">
+                    <img src="images/other1.jpg" alt="Other 1">
+                    <div class="art-info">
+                        <h3>Titel Other</h3>
+                        <p>Material: Mischtechnik</p>
+                        <p>Maße: 60 x 80 cm</p>
                     </div>
                 </div>
             </div>
@@ -117,14 +73,23 @@
         function showContent(tab) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(c => c.classList.remove('active'));
-
-            const activeTab = document.getElementById(tab);
-            activeTab.classList.add('active');
+            document.getElementById(tab).classList.add('active');
 
             const navItems = document.querySelectorAll('.sidebar li');
             navItems.forEach(i => i.classList.remove('active'));
             document.querySelector(`.sidebar li[onclick="showContent('${tab}')"]`).classList.add('active');
         }
+
+        // Scroll Animation für Bilder
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {threshold: 0.1});
+
+        document.querySelectorAll('.art-item').forEach(item => observer.observe(item));
     </script>
 </body>
 </html>
